@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olivia Feng — UX Portfolio</title>
+  <meta name="description" content="Olivia (Yuchen) Feng — UX Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          colors: {
+            primary: {
+              50: '#f3f4ff', 100: '#e8e9ff', 200: '#cfd2ff', 300: '#aeb3ff', 400: '#8a90ff',
+              500: '#6b6cff', 600: '#4d4df2', 700: '#3b3bcc', 800: '#2e2ea3', 900: '#26287f'
+            },
+            accent: { 500: '#F5C84B' }
+          },
+          boxShadow: {
+            soft: '0 10px 30px -10px rgba(0,0,0,0.15)'
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(10px); background: color-mix(in oklab, white 65%, transparent); }
+    .dark .glass { background: color-mix(in oklab, #0b1020 50%, transparent); }
+    .fade { animation: fade 0.5s ease both; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+    .focus-ring:focus { outline: 3px solid #6b6cff; outline-offset: 3px; border-radius: 0.75rem; }
+  </style>
+</head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+  <!-- Sticky Nav -->
+  <header class="sticky top-0 z-50 bg-white/70 dark:bg-slate-950/60 glass border-b border-slate-200/60 dark:border-slate-800">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="text-lg font-semibold tracking-tight">Olivia Feng</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-primary-600 focus-ring" href="#projects">Projects</a>
+        <a class="hover:text-primary-600 focus-ring" href="#about">About</a>
+        <a class="hover:text-primary-600 focus-ring" href="#contact">Contact</a>
+        <button id="themeToggle" class="px-3 py-1 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring" aria-label="Toggle dark mode">🌓</button>
+      </nav>
+      <button id="menuBtn" class="md:hidden px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus-ring" aria-label="Open menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 px-4 pb-4">
+      <a class="block py-2 hover:text-primary-600" href="#projects">Projects</a>
+      <a class="block py-2 hover:text-primary-600" href="#about">About</a>
+      <a class="block py-2 hover:text-primary-600" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-20" aria-hidden="true">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 560"><path fill="url(#g)" d="M0,320L60,298.7C120,277,240,235,360,229.3C480,224,600,256,720,272C840,288,960,288,1080,277.3C1200,267,1320,245,1380,234.7L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6b6cff"/><stop offset="100%" stop-color="#8a90ff"/></linearGradient></defs></svg>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-[auto,1fr] gap-10 items-center">
+      <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-8 ring-white/70 dark:ring-slate-900/70 shadow-soft">
+        <!-- 头像占位，替换为你的头像路径 -->
+        <img src="https://api.dicebear.com/9.x/miniavs/svg?seed=Olivia" alt="Olivia avatar" class="w-full h-full object-cover" />
+      </div>
+      <div class="fade">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Olivia (Yuchen) Feng</h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">UX Designer & Product-minded Researcher at UW HCDE — crafting simple, elegant, and human-centered experiences. I design with data, prototype with code, and care deeply about accessibility.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-primary-600 text-white shadow-soft hover:translate-y-0.5 transition">View Projects</a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-6xl px-4 py-14">
+    <div class="flex items-end justify-between mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold">Featured Projects</h2>
+      <div class="text-sm text-slate-500">点击卡片进入案例研究（可替换为你的完整 UX journey）</div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Paira -->
+      <article class="group relative rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-soft transition">
+        <button class="absolute inset-0" data-open="paira" aria-label="Open Paira case"></button>
+        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop" alt="Paira app mockup placeholder" class="h-52 w-full object-cover">
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Paira — Gen‑Z Networking & Mentorship</h3>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-200">Product + UX</span>
+          </div>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Designing meaningful matches through referrals, badges, and playful micro‑interactions.</p>
+          <p class="mt-3 text-sm text-slate-500">Role: PM/UX • Timeline: 2024–now • Team: 4</p>
+        </div>
+      </article>
+
+      <!-- Game Design -->
+      <article class="group relative rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-soft transition">
+        <button class="absolute inset-0" data-open="game" aria-label="Open Game Design case"></button>
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1600&auto=format&fit=crop" alt="Game Design placeholder" class="h-52 w-full object-cover">
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Playful Habit — Game Design for Focus</h3>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-200">Game UX</span>
+          </div>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Turning focus tracking into a cozy game loop with rewards and gentle social accountability.</p>
+          <p class="mt-3 text-sm text-slate-500">Role: UX/Prototyper • Tools: Figma, JS</p>
+        </div>
+      </article>
+
+      <!-- EcoScan Hackathon -->
+      <article class="group relative rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-soft transition">
+        <button class="absolute inset-0" data-open="ecoscan" aria-label="Open EcoScan case"></button>
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1600&auto=format&fit=crop" alt="EcoScan placeholder" class="h-52 w-full object-cover">
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">EcoScan — Hackathon Winner</h3>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-200">Hackathon</span>
+          </div>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Scan → Sort → Save. A friendly flow that makes recycling decisions instant and educational.</p>
+          <p class="mt-3 text-sm text-slate-500">Role: UX • 24‑hour sprint • Awarded</p>
+        </div>
+      </article>
+
+      <!-- Movie Event Design -->
+      <article class="group relative rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-soft transition">
+        <button class="absolute inset-0" data-open="movie" aria-label="Open Movie Design case"></button>
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1600&auto=format&fit=crop" alt="Movie Event Design placeholder" class="h-52 w-full object-cover">
+        <div class="p-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Cinema Night — Visual & Identity</h3>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-200">Visual</span>
+          </div>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">A minimal, type‑driven identity system for a campus‑wide movie campaign.</p>
+          <p class="mt-3 text-sm text-slate-500">Role: Visual/Brand • Tools: Figma, Ai</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="mx-auto max-w-6xl px-4 pb-14">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-6">
+        <h2 class="text-xl font-bold mb-4">About Me</h2>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Hi! 我是 Olivia（冯钰琛），就读于 UW HCDE。擅长把复杂问题变成简单、优雅、可落地的体验。我喜欢把研究与数据转化为产品决策，用原型快速验证，从细节里打磨温度与可访问性。</p>
+        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-300">
+          <li>• Strengths: product sense、interaction、design systems、rapid prototyping</li>
+          <li>• Tools: Figma, Framer, HTML/CSS/JS, Python (viz), Notion</li>
+          <li>• Values: clarity, kindness, momentum</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-6">
+        <h2 class="text-xl font-bold mb-4">Selected Highlights</h2>
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-300">
+          <li>Led <strong>Paira</strong> product & UX; built playful referral + matching system.</li>
+          <li><strong>EcoScan</strong> hackathon: 0→1 in 24h，简化回收决策。</li>
+          <li>Game UX side project：行为激励 + 轻社交，促进专注与习惯养成。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-6xl px-4 pb-20">
+    <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-10 text-center">
+      <h2 class="text-2xl font-bold">Let’s build something thoughtful ✨</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">欢迎联系我获取完整的案例研究或简历。</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a class="px-5 py-3 rounded-2xl bg-primary-600 text-white hover:translate-y-0.5 transition" href="mailto:your.email@uw.edu">Email</a>
+        <a class="px-5 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="px-5 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition" href="/Olivia_Feng_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Drawer / Modal -->
+  <div id="drawer" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="absolute inset-0 bg-slate-900/60" data-close></div>
+    <div class="absolute right-0 top-0 h-full w-full md:w-[720px] bg-white dark:bg-slate-950 shadow-2xl overflow-y-auto">
+      <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 id="drawer-title" class="text-lg font-semibold">Case Study</h3>
+        <button class="px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 focus-ring" data-close aria-label="Close">✕</button>
+      </div>
+      <div id="drawerBody" class="p-6 space-y-8">
+        <!-- 动态填充 -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-10 text-center text-sm text-slate-500 border-t border-slate-200 dark:border-slate-800">
+    © <span id="year"></span> Olivia Yuchen Feng — All rights reserved.
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const root = document.documentElement; const btn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('dark');
+    }
+    btn?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Case data
+    const CASES = {
+      paira: {
+        title: 'Paira — Gen‑Z Networking & Mentorship',
+        blocks: [
+          { h: 'Overview', p: 'Paira 通过推荐码、积分与轻社交互动，帮助学生与新人建立靠谱连接。项目涉及信息架构、匹配策略与可玩交互。' },
+          { h: 'Problem', p: '泛社交平台信息噪音大，职场社交门槛高、效率低，新人常常找不到“对的人”。' },
+          { h: 'Outcome', p: '设计了可扩展的匹配模型与引导上手流程，降低冷启动；AB 测试显示首周留存↑；请替换为你的真实数据。' },
+          { h: 'Process', p: 'Research → IA → Wireframe → Prototype → Test → Iterate。此处替换为你的截图、流程与关键设计决策。' }
+        ]
+      },
+      game: {
+        title: 'Playful Habit — Game Design for Focus',
+        blocks: [
+          { h: 'Overview', p: '把专注打卡变成温柔的养成游戏。通过可视化进度、可解锁奖励与轻社交，提升持续动力。' },
+          { h: 'Mechanics', p: '核心循环：设定目标 → 专注计时 → 获得奖励 → 解锁装饰 → 分享。' },
+          { h: 'Prototype', p: '低保真 → 高保真 → 可交互原型；请替换为你的 Demo/GIF/交互说明。' }
+        ]
+      },
+      ecoscan: {
+        title: 'EcoScan — Hackathon Winner',
+        blocks: [
+          { h: 'Overview', p: '24h 冲刺：相机识别 + 指南库，帮助用户快速判断垃圾分类并给出教育性反馈。' },
+          { h: 'Impact', p: '用时 24h 完成 0→1；现场测试成功率与愉悦度反馈良好。请替换为你的数据/奖项。' },
+          { h: 'Flow', p: 'Scan → Suggest → Explain。核心在于即时性与“为什么”的透明解释。' }
+        ]
+      },
+      movie: {
+        title: 'Cinema Night — Visual & Identity',
+        blocks: [
+          { h: 'Overview', p: '一套极简的海报与社媒模板，强调排版节奏与色彩统一，支持多片单元滚动发布。' },
+          { h: 'System', p: '组件化版式：Title / Still / Credits / CTA；适配线下海报与线上故事。' },
+          { h: 'Assets', p: '此处替换为视觉样张与动效预览。' }
+        ]
+      }
+    };
+
+    // Drawer logic
+    const drawer = document.getElementById('drawer');
+    const body = document.getElementById('drawerBody');
+    function openCase(key) {
+      const data = CASES[key];
+      if (!data) return;
+      body.innerHTML = `
+        <header class="space-y-2">
+          <h3 class="text-2xl font-bold">${data.title}</h3>
+          <p class="text-sm text-slate-500">下面是结构模板，请用你的完整 UX Journey 替换。</p>
+        </header>
+        ${data.blocks.map(b => `
+          <section class="space-y-2">
+            <h4 class="text-base font-semibold">${b.h}</h4>
+            <p class="text-slate-600 dark:text-slate-300">${b.p}</p>
+          </section>
+        `).join('')}
+        <section class="mt-6">
+          <a class="inline-flex items-center px-4 py-2 rounded-xl bg-primary-600 text-white" href="#contact">联系我获取完整案例</a>
+        </section>`;
+      drawer.classList.remove('hidden');
+      location.hash = key; // deep-link
+    }
+    function closeDrawer() { drawer.classList.add('hidden'); if (['paira','game','ecoscan','movie'].includes(location.hash.slice(1))) history.pushState('', document.title, window.location.pathname + window.location.search); }
+
+    document.querySelectorAll('[data-open]').forEach(btn => btn.addEventListener('click', () => openCase(btn.dataset.open)));
+    drawer.addEventListener('click', (e) => { if (e.target.hasAttribute('data-close')) closeDrawer(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Hash routing on load (allow direct links)
+    window.addEventListener('load', () => {
+      const key = location.hash.replace('#','');
+      if (CASES[key]) openCase(key);
+    });
+  </script>
+</body>
+</html>
+cd
